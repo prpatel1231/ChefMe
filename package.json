@@ -1,0 +1,24 @@
+{
+  "name": "chefme",
+  "version": "1.0.0",
+  "description": "An application that allows you to create recipes and share them with your fellow chefs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prpatel1231/ChefMe.git"
+  },
+  "author": "Parth Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prpatel1231/ChefMe/issues"
+  },
+  "homepage": "https://github.com/prpatel1231/ChefMe#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}
