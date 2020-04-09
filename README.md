@@ -9,7 +9,7 @@ An application that allows you to create recipes and share them with your fellow
 
 # Recipe Hub:
 
-
+![Recipe Hub](https://github.com/prpatel1231/ChefMe/blob/master/WireFrames/RecipeHub.png)
 
 # Recipe Creation:
 
