@@ -4,6 +4,7 @@ module.exports = {
     findAll: function(req, res) {
         db.User
             .find({})
+            .populate("recipes")
             .then(dbModel => {
                 res.json(dbModel);
             })
@@ -39,3 +40,4 @@ module.exports = {
 
     }
 }
+

@@ -4,6 +4,7 @@ module.exports = {
     findAll: function(req, res) {
         db.Recipe
             .find({})
+            .populate("users")
             .then(dbModel => {
                 res.json(dbModel);
             })
@@ -13,7 +14,7 @@ module.exports = {
     },
     findRecipe: function(req, res) {
         db.Recipe
-            .findOne({chef: req.params.chef})
+            .findOne({chef: req.params})
             .then(dbModel => {
                 res.json(dbModel);
             })
@@ -30,6 +31,7 @@ module.exports = {
                     instructions: req.body.instructions,
                     public: req.body.public
             })
+            .then(({_id}) => db.User.findOneAndUpdate({}, {$push: {recipes: _id}}, {new: true}))
             .then(dbModel => {
                 res.json(dbModel);
             })

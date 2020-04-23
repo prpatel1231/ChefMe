@@ -6,7 +6,13 @@ const Schema = mongoose.Schema;
 const recipeSchema = new Schema({
     recipeTitle: {type: String, required: true},
     // this.email to self reference the userName of the recipe creator chef: johnDoe1
-    chef: {type: String, required: true},
+    chef: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    //{type: String, required: true},
     // ingredients will be an array of strings, with each index containing 
     // an ingredient eg. "1/4 Cup of All Purpose Flour"
     ingredients: [{type: String}], 
