@@ -22,7 +22,6 @@ function LoginForm () {
 
     
     return (
-        
         <Container>
             <Form>
                 <Form.Group controlId='formBasicEmail'>
@@ -36,8 +35,7 @@ function LoginForm () {
                 <Button variant='primary' type='submit'>Login</Button>
                 <Button variant='primary' type='submit' onClick={() => history.push("/Register")}>Register</Button>
             </Form>
-        </Container>  
-        
+        </Container>    
     );
 }
 

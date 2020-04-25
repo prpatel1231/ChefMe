@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginForm from './components/LoginForm';
 import RegistrationForm from './components/RegistrationForm';
+import RecipeBuilder from './components/RecipeBuilder';
 import './App.css';
 
 
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path={["/Register"]}>
           <RegistrationForm/>
+        </Route>
+        <Route exact path={["/BuildRecipe"]}>
+          <RecipeBuilder/>
         </Route>
       </Router>
       
