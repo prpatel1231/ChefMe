@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
 
@@ -39,10 +40,22 @@ function RecipeBuilder () {
     }
 
     const handleTitleChange = (event) => {
-        const { name, value } = event.target.previousSibling;
-        setTitle({...title, });
+        const { name, value } = event.target;
+        setTitle(value);
     
     };
+
+    const saveRecipe = () => {
+        const recipe = {
+            recipeTitle: title,
+            ingredient: {ingredients},
+            instructions: {instructions}
+        }
+
+        return (
+            console.log(recipe)
+        )
+    }
 
     
     
@@ -51,8 +64,7 @@ function RecipeBuilder () {
         <Container>
             <Form.Label>Recipe Title:</Form.Label>
             <InputGroup className="mb-3">
-                <Form.Control aria-describedby="basic-addon1" name ="recipeTitle" placeholder="Enter a recipe title"/>
-                <Button variant="primary" onClick={handleTitleChange}>Add</Button>
+                <Form.Control aria-describedby="basic-addon1" name ="recipeTitle"  onChange={handleTitleChange} placeholder="Enter a recipe title"/>
             </InputGroup>
 
             
@@ -68,16 +80,32 @@ function RecipeBuilder () {
                 <Button variant="primary" onClick={updateInstructions}>Add</Button>
             </InputGroup>
 
-            <ul>
-                <li>Placeholder to display recipe</li>
 
-            </ul>
+            <Card>
+                <Card.Header as="h5">Recipe Title: {title}</Card.Header>
+                <Card.Body>
+                    <Card.Title>Ingredients:</Card.Title>
+                    <Card.Text>
+                        <ul>
+                            {ingredients.map((ingredient, index) =>{
+                                return <li>{ingredient}</li>
+                            })}
+                        </ul>
+                    </Card.Text>
+                    <Card.Title>Instructions:</Card.Title>
+                    <Card.Text>
+                        <ul>
+                            {instructions.map((instruction, index) =>{
+                                return <li>{instruction}</li>
+                            })}
+                        </ul>
+                    </Card.Text>
 
-            <Button>Save Recipe</Button>  
-            <InputGroup.Prepend>
-                <InputGroup.Text>Checkbox to make Recipe private</InputGroup.Text>
-                <InputGroup.Checkbox aria-label="Checkbox for making recipe private"/>
-            </InputGroup.Prepend>           
+
+                </Card.Body>
+            </Card>            
+
+            <Button onClick={saveRecipe}>Save Recipe</Button>           
         </Container>
     )
 }

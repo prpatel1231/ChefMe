@@ -18,9 +18,7 @@ const recipeSchema = new Schema({
     ingredients: [{type: String}], 
     // instructions will be a large string for now, potentially look at an array of 
     // stings for which each index is a step in the recipe
-    instructions: {type: String},
-    // boolean to mark whether the recipe is visible by other users, will default to true
-    public: {type: Boolean, default: true}
+    instructions: [{type: String}],
 });
 
 const Recipe = mongoose.model("Recipe", recipeSchema);

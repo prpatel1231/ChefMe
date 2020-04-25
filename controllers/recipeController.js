@@ -28,8 +28,7 @@ module.exports = {
                     recipeTitle: req.body.recipeTitle,
                     chef: req.body.chef,
                     ingredients: req.body.ingredients,
-                    instructions: req.body.instructions,
-                    public: req.body.public
+                    instructions: req.body.instructions
             })
             .then(({_id}) => db.User.findOneAndUpdate({}, {$push: {recipes: _id}}, {new: true}))
             .then(dbModel => {

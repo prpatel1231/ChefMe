@@ -14,10 +14,10 @@ function App() {
         <Route exact path={["/"]}>
         <LoginForm/>
         </Route>
-        <Route exact path={["/Register"]}>
+        <Route exact path={["/register"]}>
           <RegistrationForm/>
         </Route>
-        <Route exact path={["/BuildRecipe"]}>
+        <Route exact path={["/createRecipe"]}>
           <RecipeBuilder/>
         </Route>
       </Router>
