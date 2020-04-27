@@ -18,6 +18,7 @@ function LoginForm () {
     };
 
     const history = useHistory();
+
     
 
     
@@ -33,7 +34,7 @@ function LoginForm () {
                     <Form.Control name="password" placeholder="Enter password" onChange={handleInputChange} />
                 </Form.Group>
                 <Button variant='primary' type='submit'>Login</Button>
-                <Button variant='primary' type='submit' onClick={() => history.push("/Register")}>Register</Button>
+                <Button variant='primary' type='submit' onClick={() => history.push("/signup")}>Register</Button>
             </Form>
         </Container>    
     );

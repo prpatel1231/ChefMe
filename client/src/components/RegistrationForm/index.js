@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import UserAPI from '../../utils/UserAPI';
 
 
 function RegistrationForm () {
@@ -17,6 +18,29 @@ function RegistrationForm () {
         const { name, value } = event.target;
         setRegisterState({...registerState, [name]: value});
     
+    };
+
+    const signup = (event) => {
+        event.preventDefault();
+        const user = {
+            firstName: registerState.firstName,
+            lastName: registerState.lastName,
+            userName: registerState.userName,
+            email: registerState.email,
+            password: registerState.password
+        }
+
+        console.log("user object to send" + user)
+
+
+        UserAPI.createUser(user)
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
     };
 
 
@@ -44,7 +68,7 @@ function RegistrationForm () {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name="password" placeholder="Enter password" onChange={handleInputChange} />
                 </Form.Group>
-                <Button variant='primary' type='submit'>Register</Button>
+                <Button variant='primary' type='submit' onClick={signup}>Register</Button>
             </Form>
         </Container>  
         

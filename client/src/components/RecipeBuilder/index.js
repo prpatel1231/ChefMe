@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
+import RecipeAPI from '../../utils/RecipeAPI';
 
 
 
@@ -52,9 +53,13 @@ function RecipeBuilder () {
             instructions: {instructions}
         }
 
-        return (
-            console.log(recipe)
-        )
+        RecipeAPI.createRecipe(recipe)
+            .then((res) => {
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            });
     }
 
     
@@ -100,8 +105,6 @@ function RecipeBuilder () {
                             })}
                         </ul>
                     </Card.Text>
-
-
                 </Card.Body>
             </Card>            
 
