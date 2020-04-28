@@ -35,7 +35,7 @@ function RegistrationForm () {
 
         UserAPI.createUser(user)
             .then((res) => {
-                console.log(res.data);
+                window.location.replace("/");
             })
             .catch((err) => {
                 console.log(err);
