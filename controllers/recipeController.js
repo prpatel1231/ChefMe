@@ -24,10 +24,10 @@ module.exports = {
             })
     },
     createRecipe: function(req, res) {
+        console.log(req.body)
         db.Recipe
             .create({
                     recipeTitle: req.body.recipeTitle,
-                    // chef: req.body.chef,
                     ingredients: req.body.ingredients,
                     instructions: req.body.instructions
             })

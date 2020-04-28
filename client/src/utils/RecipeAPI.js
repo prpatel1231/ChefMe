@@ -8,6 +8,6 @@ export default {
     return axios.delete('recipes/'+ id);
   },
   createRecipe: (data) => {
-    return axios.post('/api/createRecipe');
+    return axios.post('recipes/api/createRecipe', data);
   }
 };

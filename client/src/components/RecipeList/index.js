@@ -27,10 +27,7 @@ function RecipeList() {
     }
 
     const deleteRecipe = (id) => {
-        // event.preventDefault();
-        // const id = event.target.parentElement.key;
         console.log(id);
-
         RecipeAPI.deleteRecipe(id)
             .then((res) => {
                 getRecipes();

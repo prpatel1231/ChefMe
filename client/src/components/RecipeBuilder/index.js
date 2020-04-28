@@ -26,7 +26,7 @@ function RecipeBuilder () {
 
     const updateIngredient = (event) => {
         const {name, value} = event.target.previousSibling;
-        addIngredient([value])
+        addIngredient(value)
         setNewIngredient("");
         console.log(ingredients);  
     }
@@ -35,7 +35,7 @@ function RecipeBuilder () {
 
     const updateInstructions = (event) => {
         const {name, value} = event.target.previousSibling;
-        addInstruction([value])
+        addInstruction(value)
         setNewInstruction("");
         console.log(instructions);  
     }
@@ -49,13 +49,13 @@ function RecipeBuilder () {
     const saveRecipe = () => {
         const recipe = {
             recipeTitle: title,
-            ingredient: {ingredients},
-            instructions: {instructions}
+            ingredient: ingredients,
+            instructions: instructions
         }
 
         RecipeAPI.createRecipe(recipe)
             .then((res) => {
-                console.log(res.data)
+                window.location.replace("/recipes");
             })
             .catch((err) => {
                 console.log(err)
