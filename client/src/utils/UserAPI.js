@@ -4,7 +4,7 @@ export default {
   createUser: (data) => {
     return axios.post('/api/signup', data);
   },
-  getUsers: () => {
-    return axios.get('/');
+  findUser: (data) => {
+    return axios.post('/api/', data);
   }
 };

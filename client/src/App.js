@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 import LoginForm from './components/LoginForm';
 import RegistrationForm from './components/RegistrationForm';
 import RecipeBuilder from './components/RecipeBuilder';
+import RecipeList from './components/RecipeList';
 import './App.css';
 
 
@@ -17,7 +18,10 @@ function App() {
         <Route path="/signup">
           <RegistrationForm/>
         </Route>
-        <Route exact path={["/createRecipe"]}>
+        <Route path="/recipes">
+          <RecipeList/>
+        </Route>
+        <Route path="/createRecipe">
           <RecipeBuilder/>
         </Route>
       </Router>

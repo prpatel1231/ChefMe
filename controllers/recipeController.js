@@ -1,10 +1,11 @@
 const db = require("../models");
+const mongoose = require("mongoose");
 
 module.exports = {
     findAll: function(req, res) {
         db.Recipe
             .find({})
-            .populate("users")
+            // .populate("users")
             .then(dbModel => {
                 res.json(dbModel);
             })
@@ -26,15 +27,26 @@ module.exports = {
         db.Recipe
             .create({
                     recipeTitle: req.body.recipeTitle,
-                    chef: req.body.chef,
+                    // chef: req.body.chef,
                     ingredients: req.body.ingredients,
                     instructions: req.body.instructions
             })
-            .then(({_id}) => db.User.findOneAndUpdate({}, {$push: {recipes: _id}}, {new: true}))
             .then(dbModel => {
                 res.json(dbModel);
             })
             .catch(err => {
+                res.status(400).json(err);
+            })
+    },
+    deleteRecipe: function(req, res) {
+        console.log(req.params.id)
+        db.Recipe
+            .findById({ _id: req.params.id })
+            .then(dbModel => dbModel.remove())
+            .then(dbModel => {
+                res.json(dbModel);
+            })
+            .catch((err) => {
                 res.status(400).json(err);
             })
     }

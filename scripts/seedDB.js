@@ -38,14 +38,12 @@ const userSeed = [
 const recipeSeed = [
     {
         recipeTitle: "Pasta Aglio Olio",
-        chef: "Parth",
         ingredients: ["Dried Pasta", "Olive Oil", "Garlic", "Red Pepper Flakes"],
         instruction: "Boil Pasta in heavily salted water"
   
     },
     {
         recipeTitle: "Pasta with Tomato Sauce",
-        chef: "Parth",
         ingredients: ["Dried Pasta", "Olive Oil", "Garlic", "Tomato Sauce"],
         instruction: "Boil Pasta in heavily salted water"
     }

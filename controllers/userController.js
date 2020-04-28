@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = {
     findAll: function(req, res) {
         db.User
-            .find({})
+            .find()
             .then(dbModel => {
                 res.json(dbModel);
 
@@ -14,7 +14,10 @@ module.exports = {
     },
     findUser: function(req, res) {
         db.User
-            .findOne({email: req.body.email})
+            .findOne({
+                email: req.body.email,
+                password: req.body.password
+            })
             .then(dbModel => {
                 res.json(dbModel);
             })
